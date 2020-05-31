@@ -8,6 +8,7 @@
 #---
 class Project < ApplicationRecord
   has_many :tasks, dependent: :destroy
+  validates :name, presence: true
 
   def self.velocity_length_in_days
     21
