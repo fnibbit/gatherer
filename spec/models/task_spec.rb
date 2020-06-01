@@ -9,6 +9,8 @@
 require "rails_helper"
 
 RSpec.describe Task do
+
+  it_should_behave_like "sizeable"
   describe "initialization" do
     let(:task) { Task.new }
 
@@ -32,13 +34,13 @@ RSpec.describe Task do
     end
 
     it "counts a recently completed task toward velocity" do
-      task.mark_completed(1.day.ago) 
+      task.mark_completed(1.day.ago)
       expect(task).to be_a_part_of_velocity
       expect(task.points_toward_velocity).to eq(3)
     end
 
     it "does not count a long-ago completed task toward velocity" do
-      task.mark_completed(6.months.ago) 
+      task.mark_completed(6.months.ago)
       expect(task).not_to be_a_part_of_velocity
       expect(task.points_toward_velocity).to eq(0)
     end
