@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #---
 # Excerpted from "Rails 5 Test Prescriptions",
 # published by The Pragmatic Bookshelf.
@@ -45,6 +47,7 @@ class Project < ApplicationRecord
 
   def on_schedule?
     return false if projected_days_remaining.nan?
+
     (Time.zone.today + projected_days_remaining) <= due_date
   end
 end
