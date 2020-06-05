@@ -1,15 +1,16 @@
 version: 2.1
 orbs:
+  node: circleci/node@1.1
   ruby: circleci/ruby@0.1.2 
 
 jobs:
   build:
-    docker:
-      - image: circleci/ruby:2.5.5-stretch-node
-    executor: ruby/default
-    steps:
+    executor: node/default
+    tag: '10.4'
+  steps:
       - checkout
-      - run:
-          name: Which bundler?
-          command: bundle -v
-      - ruby/bundle-install
+      - node/with-cache:
+          steps:
+            - run: npm install
+      - run: npm run test
+      
