@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Projects are the core of this project-management web app
 class ProjectsController < ApplicationController
   def new
     @project = Project.new
@@ -10,10 +11,8 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @workflow = CreatesProject.new(
-      name: params[:project][:name],
-      task_string: params[:project][:tasks]
-    )
+    @workflow = CreatesProject.new(name: params[:project][:name],
+                                   task_string: params[:project][:tasks])
     @workflow.create
     if @workflow.success?
       redirect_to projects_path

@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Shepherds a project through creation; separates the logic of project
+# characteristics from the database and display
 class CreatesProject
   attr_accessor :name, :project, :task_string
 

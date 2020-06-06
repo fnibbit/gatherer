@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Supports a shared example group
 module Sizeable
   extend ActiveSupport::Concern
 
