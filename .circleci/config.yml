@@ -16,18 +16,13 @@ jobs:
       # use the node orb to install our packages
       # specifying that we use `yarn` and to cache dependencies with `yarn.lock`
       # learn more: https://circleci.com/docs/2.0/caching/
-#      - node/install-packages:
-#          pkg-manager: yarn
-#          cache-key: "yarn.lock"
+      - node/install-packages:
+          pkg-manager: yarn
+          cache-key: "yarn.lock"
 
   test:  # our next job, called "test"
-    # we run "parallel job containers" to enable speeding up our tests;
-    # this splits our tests across multiple containers.
-    parallelism: 3
-    # here we set TWO docker images.
     docker:
       - image: circleci/ruby:2.5.5-node # this is our primary docker image, where step commands run.
-      - image: circleci/postgres:9.5-alpine
         environment: # add POSTGRES environment variables.
           POSTGRES_USER: circleci-demo-ruby
           POSTGRES_DB: rails_blog_test
@@ -40,13 +35,14 @@ jobs:
       PGUSER: circleci-demo-ruby
       PGPASSWORD: ""
       RAILS_ENV: test
+    parallelism: 3
     # A series of steps to run, some are similar to those in "build".
     steps:
       - checkout
       - ruby/install-deps
-#      - node/install-packages:
-#          pkg-manager: yarn
-#          cache-key: "yarn.lock"
+      - node/install-packages:
+          pkg-manager: yarn
+          cache-key: "yarn.lock"
       # Here we make sure that the secondary container boots
       # up before we run operations on the database.
       - run:
