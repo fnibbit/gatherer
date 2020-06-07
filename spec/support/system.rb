@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 #---
 # Excerpted from "Rails 5 Test Prescriptions",
 # published by The Pragmatic Bookshelf.

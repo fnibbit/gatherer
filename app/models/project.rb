@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 #---
 # Excerpted from "Rails 5 Test Prescriptions",
 # published by The Pragmatic Bookshelf.
@@ -8,9 +6,14 @@
 # We make no guarantees that this code is fit for any purpose.
 # Visit http://www.pragmaticprogrammer.com/titles/nrtest3 for more book information.
 #---
+#
 class Project < ApplicationRecord
   include Sizeable
+
+  #
+
   has_many :tasks, dependent: :destroy
+
   validates :name, presence: true
 
   def self.velocity_length_in_days
@@ -47,7 +50,6 @@ class Project < ApplicationRecord
 
   def on_schedule?
     return false if projected_days_remaining.nan?
-
     (Time.zone.today + projected_days_remaining) <= due_date
   end
 end
