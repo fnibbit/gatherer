@@ -1,6 +1,12 @@
-# frozen_string_literal: true
-
-require 'rails_helper'
+#---
+# Excerpted from "Rails 5 Test Prescriptions",
+# published by The Pragmatic Bookshelf.
+# Copyrights apply to this code. It may not be used to create training material,
+# courses, books, articles, and the like. Contact us if you are in doubt.
+# We make no guarantees that this code is fit for any purpose.
+# Visit http://www.pragmaticprogrammer.com/titles/nrtest3 for more book information.
+#---
+require "rails_helper"
 
 # Specs in this file have access to a helper object that includes
 # the ProjectsHelper. For example:
@@ -13,5 +19,4 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe ProjectsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
 end
