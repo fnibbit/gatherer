@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :task do
+    project
     sequence(:title) { |n| "Task #{n}" }
     size { 3 }
     completed_at { nil }
