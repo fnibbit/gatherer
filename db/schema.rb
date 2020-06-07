@@ -1,11 +1,3 @@
-#---
-# Excerpted from "Rails 5 Test Prescriptions",
-# published by The Pragmatic Bookshelf.
-# Copyrights apply to this code. It may not be used to create training material,
-# courses, books, articles, and the like. Contact us if you are in doubt.
-# We make no guarantees that this code is fit for any purpose.
-# Visit http://www.pragmaticprogrammer.com/titles/nrtest3 for more book information.
-#---
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -18,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170315030041) do
+ActiveRecord::Schema.define(version: 2020_06_07_055328) do
 
   create_table "projects", force: :cascade do |t|
     t.string "name"
@@ -34,6 +26,8 @@ ActiveRecord::Schema.define(version: 20170315030041) do
     t.datetime "completed_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "project_order"
+    t.date "due_date"
     t.index ["project_id"], name: "index_tasks_on_project_id"
   end
 
