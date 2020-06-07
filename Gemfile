@@ -29,6 +29,7 @@ group :development, :test do
   gem "rspec-rails"
   gem "rubocop"
   gem "selenium-webdriver"
+  gem "rspec_junit_formatter"
 end
 
 group :development do
